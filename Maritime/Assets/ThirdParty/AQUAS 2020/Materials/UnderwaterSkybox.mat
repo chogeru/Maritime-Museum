@@ -26,5 +26,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _SkyTint: {r: 0.01, g: 0.04, b: 0.1, a: 1}
+    - _SkyTint: {r: 0.15, g: 0.3, b: 0.45, a: 1}
   m_BuildTextureStacks: []

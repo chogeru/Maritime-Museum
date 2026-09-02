@@ -13,7 +13,7 @@ public class SubmersibleElevator : UdonSharpBehaviour
 {
     [SerializeField] private Transform surfaceDock;
     [SerializeField] private Transform seafloorDock;
-    [SerializeField] private float descentDuration = 200f;
+    [SerializeField] private float descentDuration = 400f;
     [SerializeField] private float ascentDuration = 120f;
 
     [Tooltip("A seated rider's own collider is disabled by VRChat while in a Station, so the water trigger volumes never fire for them - this bell drives the underwater effect directly for the whole ride instead of relying on trigger collision.")]

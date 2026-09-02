@@ -14,7 +14,17 @@ public class AquasUnderwaterTriggerEditor : Editor
 
         SerializedObject so = new SerializedObject(t);
         Transform waterSurface = so.FindProperty("waterSurface").objectReferenceValue as Transform;
-        float maxFogDepth = so.FindProperty("maxFogDepth").floatValue;
+        int zoneIndex = so.FindProperty("zoneIndex").intValue;
+        UnderwaterZoneManager zoneManager = so.FindProperty("zoneManager").objectReferenceValue as UnderwaterZoneManager;
+
+        float maxFogDepth = 40f;
+        if (zoneManager != null)
+        {
+            SerializedObject zoneSo = new SerializedObject(zoneManager);
+            SerializedProperty depths = zoneSo.FindProperty("zoneMaxFogDepth");
+            if (depths != null && zoneIndex >= 0 && zoneIndex < depths.arraySize)
+                maxFogDepth = depths.GetArrayElementAtIndex(zoneIndex).floatValue;
+        }
 
         float surfY = waterSurface != null ? waterSurface.position.y : t.transform.position.y;
         Vector3 center = waterSurface != null

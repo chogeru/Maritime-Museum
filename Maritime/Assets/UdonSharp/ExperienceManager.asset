@@ -21,7 +21,7 @@ MonoBehaviour:
   compiledVersion: 2
   behaviourSyncMode: 2
   hasInteractEvent: 0
-  scriptID: 2299675650447276249
+  scriptID: 5248971467438636708
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -285,7 +285,7 @@ MonoBehaviour:
       Data: 15|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: ConstellationObservation.MaterialPulse, Assembly-CSharp
+      Data: MaterialPulse, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
@@ -961,7 +961,7 @@ MonoBehaviour:
       Data: 51|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: ConstellationObservation.PlanetTourController, Assembly-CSharp
+      Data: PresentationTourController, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
@@ -1024,7 +1024,7 @@ MonoBehaviour:
       Data: 55|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: ConstellationObservation.ConstellationTourController, Assembly-CSharp
+      Data: RevealTourController, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 

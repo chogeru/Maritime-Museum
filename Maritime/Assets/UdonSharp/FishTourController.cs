@@ -1,7 +1,6 @@
 
 using UnityEngine;
 using UdonSharp;
-using ConstellationObservation;
 
 // Guided-tour version of the deep sea exhibit: at scripted intervals, one creature at a
 // time leaves its resting spot, swims up to a fixed viewing point in front of the

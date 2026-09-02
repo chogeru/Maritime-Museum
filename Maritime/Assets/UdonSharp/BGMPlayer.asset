@@ -21,7 +21,7 @@ MonoBehaviour:
   compiledVersion: 2
   behaviourSyncMode: 2
   hasInteractEvent: 0
-  scriptID: -4886518319373101748
+  scriptID: -4182644046346448269
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -326,7 +326,7 @@ MonoBehaviour:
       Data: 18|UnityEngine.TooltipAttribute, UnityEngine.CoreModule
     - Name: tooltip
       Entry: 1
-      Data: AudioSource used by PlanetTourController for narration.
+      Data: AudioSource used by PresentationTourController for narration.
     - Name: 
       Entry: 8
       Data: 
@@ -383,7 +383,7 @@ MonoBehaviour:
       Data: 21|UnityEngine.TooltipAttribute, UnityEngine.CoreModule
     - Name: tooltip
       Entry: 1
-      Data: AudioSource used by ConstellationTourController for narration.
+      Data: AudioSource used by RevealTourController for narration.
     - Name: 
       Entry: 8
       Data: 
