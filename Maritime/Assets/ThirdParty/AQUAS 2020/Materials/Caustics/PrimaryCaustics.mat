@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -33,18 +33,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Texture:
         m_Texture: {fileID: 2800000, guid: c8d84932153573643aa8f6e881cbb862, type: 3}
-        m_Scale: {x: 600, y: 600}
+        m_Scale: {x: 45, y: 45}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CausticIntensity: 1
+    - _CausticIntensity: 1.4
     - _CausticsScale: 5
-    - _DepthFade: -35.05
+    - _DepthFade: -520
     - _DistanceVisibility: 60
     - _Fade: 2
-    - _HeightCut: -20
-    - _Intensity: 1.1
-    - _UnderwaterCut: -10
+    - _HeightCut: -520
+    - _Intensity: 1.6
+    - _UnderwaterCut: -520
     - _WaterLevel: -0.05
     - __dirty: 1
     m_Colors:
