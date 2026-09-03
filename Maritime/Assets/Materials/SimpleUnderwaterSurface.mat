@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UnderwaterSkybox
-  m_Shader: {fileID: 4800000, guid: b2c3d4e5f6a7b8c9d0e1f2a3b4c5d601, type: 3}
+  m_Name: SimpleUnderwaterSurface
+  m_Shader: {fileID: 4800000, guid: d1931f209aef878439f3182cd7ee9c68, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -22,9 +22,20 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _WaveTex:
+        m_Texture: {fileID: 2800000, guid: 23bcf594ec017424e892a95b68f6b439, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _HighlightIntensity: 0.7
+    - _HighlightPower: 3
+    - _RimPower: 2
+    - _WaveSpeed: 0.03
+    - _WaveTiling: 0.018
     m_Colors:
-    - _SkyTint: {r: 0.25, g: 0.55, b: 0.7, a: 1}
+    - _Color: {r: 0.15, g: 0.35, b: 0.45, a: 0.85}
+    - _HighlightColor: {r: 0.9, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.85, g: 0.97, b: 1, a: 0.7}
   m_BuildTextureStacks: []

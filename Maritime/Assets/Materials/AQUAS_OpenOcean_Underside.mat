@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AQUAS_OpenOcean_Underside
+  m_Shader: {fileID: 4800000, guid: a45adff8c594add41a7f4b913fd9dfae, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BackgroundTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTexture:
+        m_Texture: {fileID: 2800000, guid: 23bcf594ec017424e892a95b68f6b439, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RandomMask:
+        m_Texture: {fileID: 2800000, guid: 15f5278be96c0184fa0b0fa59e90a43a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RippleTex0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RippleTex1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RippleTex2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RippleTex3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShorelineMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _DistanceFade: 0
+    - _FarTilingDistance: 0
+    - _FlowSpeed: 20
+    - _GlossyReflections: 1
+    - _LinearColorSpace: 0
+    - _MediumTilingDistance: 0
+    - _NormalStrength: 2.3
+    - _NormalTiling: 0.14
+    - _PhysicalNormalStrength: 0
+    - _ProjectGrid: 0
+    - _Refraction: 0.1
+    - _RippleStrength: 0.5
+    - _Scale0: 0
+    - _Scale1: 0
+    - _Scale2: 0
+    - _Scale3: 0
+    - _ShorelineBlend: 0
+    - _ShorelineFrequency: 0
+    - _ShorelineNormalStrength: 0
+    - _ShorelineSpeed: 0
+    - _WaveSpeed: 0.045
+    - _XOffset0: 0
+    - _XOffset1: 0
+    - _XOffset2: 0
+    - _XOffset3: 0
+    - _ZOffset0: 0
+    - _ZOffset1: 0
+    - _ZOffset2: 0
+    - _ZOffset3: 0
+    - __dirty: 1
+    - _waterLevel: 0
+    m_Colors:
+    - _DeepWaterColor: {r: 0.22272158, g: 0.377425, b: 0.51886785, a: 1}
+    - _ObjectScale: {r: 0, g: 0, b: 0, a: 0}
+    - _RangeVector: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
