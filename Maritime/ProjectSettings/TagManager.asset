@@ -27,8 +27,8 @@ TagManager:
   - InternalUI
   - HardwareObjects
   - reserved4
-  - 
-  - 
+  - PostProcessing
+  - NoCaustics
   - 
   - 
   - 

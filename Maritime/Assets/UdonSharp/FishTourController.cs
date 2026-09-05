@@ -117,7 +117,12 @@ public class FishTourController : UdonSharpBehaviour
             return;
         }
 
-        Quaternion faceRot = Quaternion.LookRotation((approachPoint.forward), Vector3.up);
+        // Face the direction actually being swum, not the approach point's own forward -
+        // see UnderwaterObservationController for the same fix and why it matters.
+        Vector3 travelDir = approachPoint.position - homePositions[currentIndex];
+        Quaternion faceRot = travelDir.sqrMagnitude > 0.0001f
+            ? Quaternion.LookRotation(travelDir.normalized, Vector3.up)
+            : Quaternion.LookRotation(approachPoint.forward, Vector3.up);
         BeginSwim(current, homePositions[currentIndex], approachPoint.position,
             homeRotations[currentIndex], faceRot, swimInDuration);
 

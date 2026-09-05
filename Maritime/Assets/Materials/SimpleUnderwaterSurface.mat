@@ -29,13 +29,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _HighlightIntensity: 0.7
-    - _HighlightPower: 3
-    - _RimPower: 2
-    - _WaveSpeed: 0.03
-    - _WaveTiling: 0.018
+    - _ChopScale: 3.7
+    - _Distortion: 0.036
+    - _HighlightIntensity: 3.2
+    - _HighlightPower: 4.6
+    - _RimPower: 2.5
+    - _SunGlint: 0.21
+    - _SunGlintPower: 4
+    - _SwellScale: 0.55
+    - _WaveSpeed: 0.016791403
+    - _WaveTiling: 0.034
     m_Colors:
-    - _Color: {r: 0.15, g: 0.35, b: 0.45, a: 0.85}
-    - _HighlightColor: {r: 0.9, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0.85, g: 0.97, b: 1, a: 0.7}
+    - _Color: {r: 0.13, g: 0.38, b: 0.52, a: 0.88}
+    - _HighlightColor: {r: 0.45296368, g: 0.7960868, b: 0.8207547, a: 1}
+    - _RimColor: {r: 0, g: 0.0984092, b: 0.13207549, a: 0.8}
   m_BuildTextureStacks: []

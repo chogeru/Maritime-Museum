@@ -10,6 +10,9 @@ Shader "AQUAS/Misc/Caustics"
 		_Fade("Fade", Float) = 0
 		_DepthFade("Depth Fade", Float) = 0
 		_CausticsTint("Caustics Tint", Color) = (1,1,1,1)
+		// Driven at runtime by AquasCausticsAnimator. The material's texture offset cannot
+		// be used because the UV here is derived from world position, not TRANSFORM_TEX.
+		_DriftOffset("Drift Offset", Vector) = (0,0,0,0)
 
 	}
 	
@@ -74,6 +77,7 @@ Shader "AQUAS/Misc/Caustics"
 			
 			uniform sampler2D _Texture;
 			uniform float _CausticsScale;
+			uniform float4 _DriftOffset;
 			uniform float _WaterLevel;
 			uniform float _DepthFade;
 			uniform float _Intensity;
@@ -140,7 +144,11 @@ Shader "AQUAS/Misc/Caustics"
 					sin(_Time.y * 1.3 + ase_worldPos.x * 2.1 + ase_worldPos.z * 1.7),
 					cos(_Time.y * 1.1 + ase_worldPos.z * 2.3 - ase_worldPos.x * 1.3)
 				) * 0.025;
-				float2 causticsUV = (ase_worldPos).xz * float2( 0.1,0.1 ) * _CausticsScale + shimmer;
+				// This shader builds its UV straight from world position, so the material's
+				// texture tiling/offset never reach it. _DriftOffset is the supported way to
+				// slide the pattern; AquasCausticsAnimator feeds it so the caustics travel
+				// with the surface instead of animating in place.
+				float2 causticsUV = (ase_worldPos).xz * float2( 0.1,0.1 ) * _CausticsScale + shimmer + _DriftOffset.xy;
 				half4 lerpResult63 = lerp( ( saturate( ( tex2D( _Texture, causticsUV ) * half4( causticsTint , 0.0 ) ) ) * ( 1.0 - saturate( ( ( ( _WaterLevel + -1.0 ) * -1.0 ) + ase_worldPos.y ) ) ) * saturate( ( ase_worldPos.y + ( -1.0 * _DepthFade ) ) ) * _Intensity ) , float4(0,0,0,1) , saturate( pow( ( distance( ase_worldPos , _WorldSpaceCameraPos ) / _DistanceVisibility ) , _Fade ) ));
 				
 				

@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _ENABLEPROBERELFECTIONS_ON
+  - _ENABLEREALTIMEREFLECTIONS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -124,15 +125,15 @@ Material:
     m_Floats:
     - _Choppiness: 0.0024
     - _ChromaticAberration: 0
-    - _Density: 0.11
+    - _Density: 0.16
     - _Depth: 1
     - _DepthFade: 1
     - _DepthTransparency: 0.2
-    - _DistanceFade: 0.5
-    - _Distortion: 0.9
+    - _DistanceFade: 0.05
+    - _Distortion: 1.2
     - _EdgeLength: 15
     - _EnableProbeRelfections: 1
-    - _EnableRealtimeReflections: 0
+    - _EnableRealtimeReflections: 1
     - _EnableReflections: 1
     - _Fade: 2.55
     - _FarTilingDistance: 1000
@@ -157,24 +158,24 @@ Material:
     - _FoamTiling: 0.27
     - _FoamVisibility: 1
     - _Frequency: 5
-    - _Gloss: 0.6
+    - _Gloss: 0.88
     - _GlossyReflections: 1
     - _Height: 0.002
-    - _LightWrapping: 2
+    - _LightWrapping: 1.2
     - _LinearColorSpace: 0
     - _MediumDistance: 100
     - _MediumDistanceFalloff: 2.56
     - _MediumTilingDistance: 100
     - _MediumTilingFade: 1
-    - _NormalStrength: 2.3
-    - _NormalTiling: 0.14
+    - _NormalStrength: 4.6
+    - _NormalTiling: 0.26
     - _ObjectRotation: 0
     - _PhysicalNormalStrength: 0
-    - _ProbeReflectionIntensity: 0.55
+    - _ProbeReflectionIntensity: 0.9
     - _ProjectGrid: 0
-    - _RealtimeReflectionIntensity: 0.322
+    - _RealtimeReflectionIntensity: 0.65
     - _ReflectionIntensity: 0.546
-    - _Refraction: 0.121
+    - _Refraction: 0.22
     - _Refraction2: 0
     - _RippleStrength: 0
     - _Scale0: 0
@@ -187,7 +188,7 @@ Material:
     - _ShorelineFrequency: 22.92
     - _ShorelineNormalStrength: 0.62
     - _ShorelineSpeed: 0.026
-    - _Specular: 1
+    - _Specular: 1.6
     - _SpecularHighlights: 1
     - _Speculari: 1.12
     - _Speed: 0.1
@@ -208,7 +209,7 @@ Material:
     - _WaterDepth: 6.47
     - _WaterFalloff: 2.4
     - _Wave: 0
-    - _WaveSpeed: 0.045
+    - _WaveSpeed: 0.07
     - _XOffset0: 0
     - _XOffset1: 0
     - _XOffset2: 0
@@ -224,14 +225,14 @@ Material:
     - _Color0: {r: 0.14901961, g: 0.23529412, b: 0.32941177, a: 0}
     - _Color1: {r: 0.8207547, g: 0, b: 0, a: 0}
     - _DeepColor: {r: 0, g: 0, b: 0, a: 0}
-    - _DeepWaterColor: {r: 0.2227216, g: 0.37742501, b: 0.5188679, a: 0}
+    - _DeepWaterColor: {r: 0.1, g: 0.34, b: 0.5, a: 0}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 0}
-    - _MainColor: {r: 0.3915094, g: 1, b: 0.4726416, a: 0}
+    - _MainColor: {r: 0.42, g: 0.86, b: 0.92, a: 0}
     - _ObjectScale: {r: 0, g: 0, b: 0, a: 0}
     - _RangeVector: {r: 0, g: 0, b: 0, a: 0}
     - _ShalowColor: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 1, g: 0.8666667, b: 0, a: 1}
-    - _SpecularColor: {r: 1, g: 0.9216936, b: 0.6650944, a: 0}
+    - _SpecularColor: {r: 1, g: 0.94, b: 0.78, a: 0}
     - _Vector1: {r: 1.18, g: 1.36, b: -0.45, a: 0}
     - _Vector3: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

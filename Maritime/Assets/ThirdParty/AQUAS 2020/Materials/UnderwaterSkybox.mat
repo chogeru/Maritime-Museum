@@ -24,7 +24,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _DownDarken: 0.55
+    - _GradientFalloff: 1.1
+    - _UpBoost: 1.45
     m_Colors:
     - _SkyTint: {r: 0.25, g: 0.55, b: 0.7, a: 1}
   m_BuildTextureStacks: []

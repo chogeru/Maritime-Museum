@@ -20,6 +20,16 @@ public class FishSchool : UdonSharpBehaviour
     [SerializeField] private float schoolRadius = 5f;
     [SerializeField] private float verticalRatio = 0.5f; // roam volume is flattened vertically by this much
 
+    [Tooltip("Yaw correction for models whose nose is not built along +Z. Several of these fish are " +
+             "authored facing backwards, so steering them by their velocity points the tail the way " +
+             "they are travelling - set this to 180 for those. Verified per group by placing a camera " +
+             "on a fish's own right: a correctly built model shows its nose on the right of frame.")]
+    [Header("Model Orientation")]
+    [SerializeField] private float modelYawOffset = 0f;
+
+    [Tooltip("Optional yaw correction per fish, in fish-array/child order. Falls back to Model Yaw Offset.")]
+    [SerializeField] private float[] modelYawOffsets;
+
     [Header("Movement feel")]
     [SerializeField] private float swimSpeed = 1.0f;
     [SerializeField] private float speedVariance = 0.3f;
@@ -53,6 +63,25 @@ public class FishSchool : UdonSharpBehaviour
     [SerializeField] private Transform[] predators;
     [SerializeField] private float predatorFleeRadius = 9f;
 
+    [Header("Circulation")]
+    [Tooltip("Perlin wander alone leaves each fish parked on its slot: the seek direction flips every " +
+             "frame and the velocity smoothing averages it to nothing (measured 0.02 m/s against a 0.45 m/s " +
+             "setting). Orbiting the whole school around its home keeps the target permanently moving, so " +
+             "the fish are always travelling somewhere. Radians per second.")]
+    [SerializeField] private float orbitSpeed = 0f;
+    [SerializeField] private float orbitRadius = 0f;
+    [Tooltip("Vertical bob of the orbit, in metres.")]
+    [SerializeField] private float orbitBob = 0f;
+
+    [Header("Containment")]
+    [Tooltip("Hard limits, not steering. There is no collision test here - the guarantee that fish " +
+             "never enter the seabed or a rock comes from keeping them inside a volume that was " +
+             "checked clear in the editor. Fleeing can otherwise carry a fish well past its wander range.")]
+    [SerializeField] private float maxRadius = 0f;   // 0 = unlimited
+    [SerializeField] private float minY = -10000f;
+    [SerializeField] private float maxY = 10000f;
+
+    private Quaternion[] modelCorrections;
     private Vector3 homeCenter;
     private Vector3[] velocity;
     private Vector3[] slotOffset;
@@ -75,6 +104,7 @@ public class FishSchool : UdonSharpBehaviour
         homeCenter = transform.position;
 
         int n = fish.Length;
+        modelCorrections = new Quaternion[n];
         velocity = new Vector3[n];
         slotOffset = new Vector3[n];
         positions = new Vector3[n];
@@ -102,7 +132,10 @@ public class FishSchool : UdonSharpBehaviour
             phaseX[i] = Random.Range(0f, 100f);
             phaseY[i] = Random.Range(0f, 100f);
             phaseZ[i] = Random.Range(0f, 100f);
-            velocity[i] = fish[i] != null ? fish[i].forward * 0.1f : Vector3.forward * 0.1f;
+            float yaw = modelYawOffsets != null && i < modelYawOffsets.Length ? modelYawOffsets[i] : modelYawOffset;
+            modelCorrections[i] = Quaternion.Euler(0f, yaw, 0f);
+            Vector3 nose = Quaternion.Inverse(modelCorrections[i]) * Vector3.forward;
+            velocity[i] = fish[i] != null ? fish[i].rotation * nose * 0.1f : Vector3.forward * 0.1f;
             wanderTarget[i] = slotOffset[i];
         }
     }
@@ -123,6 +156,16 @@ public class FishSchool : UdonSharpBehaviour
             cx * schoolRadius * 0.6f,
             cy * schoolRadius * 0.6f * verticalRatio,
             cz * schoolRadius * 0.6f);
+
+        // A steady orbit on top of the wander. This is what actually keeps the shoal in motion.
+        if (orbitRadius > 0f)
+        {
+            float a = t * orbitSpeed;
+            schoolCenter += new Vector3(
+                Mathf.Cos(a) * orbitRadius,
+                Mathf.Sin(a * 0.6f) * orbitBob,
+                Mathf.Sin(a) * orbitRadius);
+        }
 
         int n = fish.Length;
 
@@ -228,11 +271,27 @@ public class FishSchool : UdonSharpBehaviour
             }
 
             velocity[i] = Vector3.Lerp(velocity[i], desiredVelocity, acceleration * dt);
-            f.position = myPos + velocity[i] * dt;
+
+            Vector3 next = myPos + velocity[i] * dt;
+            if (maxRadius > 0f)
+            {
+                Vector3 fromHome = next - homeCenter;
+                float outDist = fromHome.magnitude;
+                if (outDist > maxRadius)
+                {
+                    next = homeCenter + fromHome * (maxRadius / outDist);
+                    // bleed off the outward speed so the fish turns back instead of grinding the wall
+                    velocity[i] -= fromHome * (Vector3.Dot(velocity[i], fromHome) / (outDist * outDist));
+                }
+            }
+            if (next.y < minY) { next.y = minY; if (velocity[i].y < 0f) velocity[i].y = 0f; }
+            if (next.y > maxY) { next.y = maxY; if (velocity[i].y > 0f) velocity[i].y = 0f; }
+            f.position = next;
 
             if (velocity[i].sqrMagnitude > 0.0004f)
             {
-                Quaternion wantRot = Quaternion.LookRotation(velocity[i].normalized, Vector3.up);
+                Quaternion wantRot = Quaternion.LookRotation(velocity[i].normalized, Vector3.up)
+                                     * modelCorrections[i];
                 f.rotation = Quaternion.Slerp(f.rotation, wantRot, turnSpeed * dt);
             }
         }
