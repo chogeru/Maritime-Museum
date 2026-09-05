@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: b7ed7f87bf1649248b0b9934733be7d0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8e06dd4422a560a44852d998affe85db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -50,6 +50,6 @@ Material:
     m_Colors:
     - _CausticsTint: {r: 0.85, g: 0.95, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DriftOffset: {r: 0.51562566, g: 0.30842304, b: 0, a: 0}
+    - _DriftOffset: {r: 0.26112446, g: 0.15281723, b: 0, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
